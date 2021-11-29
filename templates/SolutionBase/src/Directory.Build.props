@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Import Project="build/dependencies.props" />
+  <PropertyGroup Label="PackageInformation">
+    <PackageLicenseExpression>licence</PackageLicenseExpression>
+    <PackageProjectUrl>url-project</PackageProjectUrl>
+    <RepositoryUrl>url-repository</RepositoryUrl>
+    <Authors>autor</Authors>
+    <Company>company</Company>
+  </PropertyGroup>
+</Project>

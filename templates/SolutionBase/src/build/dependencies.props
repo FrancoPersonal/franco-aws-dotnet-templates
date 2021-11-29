@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup Label="SDKVersion">
+    <NetstandardVersion>netstandard2.1</NetstandardVersion>
+    <NetCoreVersion>netcoreapp3.1</NetCoreVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="Packages">
+    <AmazonLambdaAPIGatewayEvents>2.4.0</AmazonLambdaAPIGatewayEvents>
+    <AmazonLambdaCore>2.1.0</AmazonLambdaCore>
+    <AmazonLambdaSerializationJson>2.0.0</AmazonLambdaSerializationJson>
+    <MicrosoftExtensionsConfiguration>6.0.0</MicrosoftExtensionsConfiguration>
+    <MicrosoftExtensionsConfigurationBinder>6.0.0</MicrosoftExtensionsConfigurationBinder>
+    <MicrosoftExtensionsConfigurationJson>6.0.0</MicrosoftExtensionsConfigurationJson>
+    <MicrosoftExtensionsDependencyInjection>6.0.0</MicrosoftExtensionsDependencyInjection>
+  </PropertyGroup>
+</Project>

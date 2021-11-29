@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Persons>
+	<Person>
+		<Name>john</Name>
+	</Person>
+	<Employee>
+		<Detail>
+			<Firstname>john</Firstname>
+	    </Detail>
+	</Employee>
+	<Student>
+		<FullName>john</FullName>
+	</Student>
+</Persons>
