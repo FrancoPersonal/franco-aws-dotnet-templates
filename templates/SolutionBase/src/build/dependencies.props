@@ -12,5 +12,11 @@
     <MicrosoftExtensionsConfigurationBinder>6.0.0</MicrosoftExtensionsConfigurationBinder>
     <MicrosoftExtensionsConfigurationJson>6.0.0</MicrosoftExtensionsConfigurationJson>
     <MicrosoftExtensionsDependencyInjection>6.0.0</MicrosoftExtensionsDependencyInjection>
+    <AmazonLambdaSerializationSystemTextJson>2.0.1</AmazonLambdaSerializationSystemTextJson>
+    <MicrosoftExtensionsConfigurationUserSecrets>3.1.13</MicrosoftExtensionsConfigurationUserSecrets>
+    <NewtonsoftJson>13.0.1</NewtonsoftJson>
+    <Postgrespsql>13.4.0.2</Postgrespsql>
+    <dbup-postgresql>4.5.0</dbup-postgresql>
+    <Npgsql>6.0.1</Npgsql>
   </PropertyGroup>
 </Project>

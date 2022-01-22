@@ -27,7 +27,7 @@ namespace FixTagSolution
         }
         static void ReplaceTags(string tagName, string tagValue, string xmlPath= "path_to_xml_file.xml")
         {
-            var doc = XDocument.Load(xmlPath);
+            XDocument doc = XDocument.Load(xmlPath);
 
             //select all leaf elements having value equals "john"
             var elementsToUpdate = doc.Descendants()

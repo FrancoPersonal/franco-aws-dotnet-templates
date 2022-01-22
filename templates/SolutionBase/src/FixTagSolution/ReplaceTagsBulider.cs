@@ -20,7 +20,7 @@ namespace FixTagSolution
             Dictionary<string, string> basetags = config.GetSection("basesettings").GetChildren().ToDictionary(x => x.Key, y => y.Value);
             foreach (XElement element in elements)
             {
-                KeyValuePair<string, string> tag = basetags.Where(x => element.Value.StartsWith(x.Key)).FirstOrDefault();
+                KeyValuePair<string, string> tag = basetags.FirstOrDefault(x => element.Value.StartsWith(x.Key));
                 if (tag.Value != null)
                 {
                     element.Value = tag.Value;
@@ -49,22 +49,28 @@ namespace FixTagSolution
 
         public static Dictionary<string, string> ReplaceMissingReferences(this IEnumerable<XElement> elements, Dictionary<string, string> missingReferences)
         {
-            foreach (XElement element in elements)
+            foreach (XElement element in elements.Where(
+                e=>e.HasAttributes &&
+                e.Attributes().Any(a=>a.Name == "Version" && !a.Value.StartsWith("$"))                 
+                ))
             {
-                if (element.HasAttributes == true)
+                //if ( !element.Attributes()
+                //    .Any(a => a.Name == "Version") ||
+                //    element.Attribute("Version").Value.StartsWith("$")
+                //    )
+                //{
+                //    continue;
+                //}
+                
+                var key = element.Attribute("Include").Value.Replace(".", "");
+                var value = element.Attribute("Version").Value;
+                if (!missingReferences.ContainsKey(key))
                 {
-                    if (!element.Attribute("Version").Value.StartsWith("$"))
-                    {
-                        var key = element.Attribute("Include").Value.Replace(".", "");
-                        var value = element.Attribute("Version").Value;
-                        if (!missingReferences.ContainsKey(key))
-                        {
-                            missingReferences.Add(key, value);
-                        }
-                        element.Attribute("Include").Value = element.Attribute("Include").Value;
-                        element.Attribute("Version").Value = ($@"$({key})");
-                    }
+                    missingReferences.Add(key, value);
                 }
+                element.Attribute("Version").Value = ($@"$({key})");
+
+
             }
             return missingReferences;
         }
@@ -84,9 +90,8 @@ namespace FixTagSolution
             var properties = XDocument.Load(propertiesPath);
 
             XElement packageSection = properties.Descendants()
-                                      .Where(o => o.HasAttributes && o.Attributes()
-                                      .Any(a => a.Name == "Label" && a.Value == "Packages"))
-                                      .FirstOrDefault();
+                .FirstOrDefault(o => o.HasAttributes && o.Attributes()
+                .Any(a => a.Name == "Label" && a.Value == "Packages"));
 
             var toUpdate = packageSection.Descendants();
 

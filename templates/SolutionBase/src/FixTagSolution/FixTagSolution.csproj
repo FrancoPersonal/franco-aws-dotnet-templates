@@ -6,6 +6,9 @@
     <BaseOutputPath>..\tools</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\test\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="$(AmazonLambdaCore)" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="$(MicrosoftExtensionsConfiguration)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="$(MicrosoftExtensionsConfigurationBinder)" />
